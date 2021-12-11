@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"strconv"
 	"strings"
 	"regexp"
@@ -19,10 +19,7 @@ var (
 )
 
 func init() {
-	c, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		fmt.Println(err)
-	}
+	c, _ := os.ReadFile("input.txt")
 	data = input(c)
 	stream, boards = data.parse()
 }
